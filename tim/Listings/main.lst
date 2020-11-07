@@ -1,0 +1,434 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              11/07/2020 20:52:23 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Include) DEBUG OBJECTEXTEND PRI
+                    -NT(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "N76E003.h"
+   2          #include "SFR_Macro.h"
+   3          #include "Function_define.h"
+   4          #include "Common.h"
+   5          #include "Delay.h"
+   6          
+   7          unsigned char sangXuoi[8]= {0xfe,0xfc,0xf8,0xf0,0xe0,0xc0,0x80,0x00};
+   8          unsigned char sangNguoc[8] = {0xff,0x7f,0x3f,0x1f,0x0f,0x07,0x03,0x01};
+   9          unsigned char tatXuoi[8] = {0x01,0x03,0x07,0x0f,0x1f,0x3f,0x7f,0xff};
+  10          unsigned char tatNguoc[9] = {0x80, 0xc0, 0xe0, 0xf0, 0xf8, 0xfc, 0xfe,0xff};
+  11          
+  12          unsigned char sang1BongXuoi[8] = {0xfe,0xfd,0xfb,0xf7,0xef,0xdf,0xbf,0x7f};
+  13          unsigned char sang1BongNguoc[8] = {0x7f,0xbf,0xdf,0xef,0xf7,0xfb,0xfd,0xfe};
+  14          unsigned char tat1BongXuoi[8] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};
+  15          unsigned char tat1BongNguoc[8] = {0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
+  16          
+  17          void delay(unsigned int time){
+  18   1        unsigned int i,j;
+  19   1        for(i = 0; i<time; i++){
+  20   2          for(j=0; j<123; j++);
+  21   2        }
+  22   1      }
+  23          
+  24          void Blink(int lan) //nhay toan bo trong va ngoai
+  25          {
+  26   1        int i;
+  27   1        for(i=0;i<lan;i++)
+  28   1        {
+  29   2          P0 = P1 = 0;
+  30   2          delay(750);
+  31   2          P0 = P1 = 0xff;
+  32   2          delay(750);
+  33   2        }
+  34   1      }
+  35          void nhayVeTraiTim() //Vua nhay vua ve trai tim
+  36          { 
+  37   1        int i;
+  38   1        P1=P0=0xff;
+  39   1        for(i=0;i<8;i++)
+  40   1        {
+  41   2          P1 = sangXuoi[i];
+  42   2          delay(750);
+  43   2          P1=0xff;
+  44   2          delay(750);
+  45   2        }
+  46   1        P1=0;
+  47   1        for(i=0;i<8;i++)
+  48   1        {
+  49   2          P0 = sangXuoi[i];
+  50   2          delay(750);
+  51   2          P0=0xff;
+  52   2          delay(750);
+  53   2        }
+  54   1        P0=0;
+C51 COMPILER V9.60.0.0   MAIN                                                              11/07/2020 20:52:23 PAGE 2   
+
+  55   1      }
+  56          void nhayVeTraiTim2()
+  57          {
+  58   1        P1=P0=0;
+  59   1        P1=P0=0xfe; delay(750);
+  60   1        P1=P0=0xfd; delay(750);
+  61   1        P1=P0=0xfa; delay(750);
+  62   1        P1=P0=0xf5; delay(750);
+  63   1        P1=P0=0xea; delay(750);
+  64   1        P1=P0=0xd5; delay(750);
+  65   1        P1=P0=0xaa; delay(750);
+  66   1        P1=P0=0x55; delay(750);
+  67   1      }
+  68          void nhayVeChu()  //Vua nhay vua ve chu Q <3 N
+  69          { 
+  70   1        int i;
+  71   1        //----------- Xu <3 Hiep --------- 
+  72   1        for(i=0;i<3;i++)
+  73   1        {
+  74   2          P0 = sangXuoi[i];
+  75   2          delay(750);
+  76   2          P0=0xff;
+  77   2          delay(750);
+  78   2        }
+  79   1      }
+  80          void nhayXenKeTraiTim(int lan)  //trai tim ben ngoai nhay xen ke nhau  
+  81          { 
+  82   1        int i;
+  83   1        for(i=0;i<lan;i++)
+  84   1        {
+  85   2          P1=0xaa; P0=0x55; delay(750);
+  86   2          P1=0x55; P0=0xaa; delay(750);       
+  87   2        }
+  88   1      }
+  89          void nhayXenKeTrongNgoai() //ben trong va ben ngoai nhay xen ke nhau
+  90          { 
+  91   1        P1=0; P0=0xff; delay(750);
+  92   1        P1=0xff; P0=0; delay(750);
+  93   1      }
+  94          /*void nhayDienTen() //1 bong chay den cuoi roi chay lai, het lan i thi bong thu i sang   
+  95          {
+  96             P1=P3=0;
+  97            P0=0; delay(750); P0=0xff;
+  98            P2=0; delay(750); P2=0xff;
+  99            P0=0; delay(750); P0=0xff;
+ 100            P2=0; delay(750); P2=0xff;
+ 101            //----------------- Xu <3 Hiep --------------------------
+ 102            P0=0xfe; delay(750); P0=0xfd; delay(750); P0=0xfb; delay(750); P0=0xf7; delay(750); P0=0xef; delay(750); 
+             -P0=0xdf; delay(750); P0=0xbf; delay(750);
+ 103            P0=0xff; delay(750); P0=0xe7; delay(750); P0=0xf7; delay(750); P0=0xfb; delay(750); P0=0xfd; delay(750); 
+             -P0=0xfe; delay(750);
+ 104            //-----------------------------------------------------
+ 105            P0=0xfc; delay(750); P0=0xfa; delay(750); P0=0xf6; delay(750); P0=0xee; delay(750); P0=0xde; delay(750); 
+             -P0=0xbe; delay(750);
+ 106            P0=0xde; delay(750); P0=0xee; delay(750); P0=0xf6; delay(750); P0=0xfa; delay(750); P0=0xfc; delay(750);
+ 107            //-----------------------------------------------------
+ 108            P0=0xf8; delay(750); P0=0xf4; delay(750); P0=0xec; delay(750); P0=0xdc; delay(750); P0=0xbc; delay(750);
+ 109            P0=0xdc; delay(750); P0=0xec; delay(750); P0=0xf4; delay(750); P0=0xf8; delay(750);
+ 110            //-----------------------------------------------------
+ 111            P0=0xf0; delay(750); P0=0xe8; delay(750); P0=0xd8; delay(750); P0=0xb8; delay(750);
+ 112            P0=0xd8; delay(750); P0=0xe8; delay(750); P0=0xf0; delay(750);
+ 113            //-----------------------------------------------------
+C51 COMPILER V9.60.0.0   MAIN                                                              11/07/2020 20:52:23 PAGE 3   
+
+ 114            P0=0xe0; delay(750); P0=0xd0; delay(750);  P0=0xb0; delay(750);
+ 115            P0=0xd0; delay(750); P0=0xe0; delay(750);
+ 116            //-----------------------------------------------------
+ 117            P0=0xc0; delay(750); P0=0xa0; delay(750);
+ 118            P0=0xc0; delay(750);
+ 119            //----------------------------------------------------
+ 120            P0=0x80; delay(750);
+ 121            P0=0; 
+ 122          }*/
+ 123          void chay1Bong1() //1 bong tat chay tu vi tri 0 den 7 roi quay lai
+ 124          {
+ 125   1        int i;
+ 126   1        for(i=0;i<8;i++)
+ 127   1        {
+ 128   2          P1=P0=tat1BongXuoi[i];
+ 129   2          delay(750);
+ 130   2        }
+ 131   1        P1=P0=0;
+ 132   1        for(i=0;i<8;i++)
+ 133   1        {
+ 134   2          P1=P0=tat1BongNguoc[i];
+ 135   2          delay(750);
+ 136   2        }
+ 137   1        P0=P1=0xff;
+ 138   1      } 
+ 139          void chayVongTronXuoi1() //1 bong tat chay vong tron
+ 140          {
+ 141   1        int i;
+ 142   1        P0=P1=0;
+ 143   1        for(i=0;i<8;i++)
+ 144   1        {
+ 145   2          P1=tat1BongXuoi[i];
+ 146   2          delay(750); 
+ 147   2        }
+ 148   1        P1=0;
+ 149   1        for(i=0;i<8;i++)
+ 150   1        {
+ 151   2          P0=tat1BongNguoc[i];
+ 152   2          delay(750);
+ 153   2        }
+ 154   1        P0=0;
+ 155   1      }
+ 156          void chayVongTronNguoc1() //1 bong tat chay vong tron nguoc
+ 157          {
+ 158   1        int i;
+ 159   1        P0=P1=0;
+ 160   1        for(i=0;i<8;i++)
+ 161   1        {
+ 162   2          P0=tat1BongXuoi[i];
+ 163   2          delay(750); 
+ 164   2        }
+ 165   1        P0=0;
+ 166   1        for(i=0;i<8;i++)
+ 167   1        {
+ 168   2          P1=tat1BongNguoc[i];
+ 169   2          delay(750);
+ 170   2        }
+ 171   1        P1=0;
+ 172   1      }
+ 173          void nhayDienTen2()  //ten duoc dien tu 2 chieu
+ 174          {
+ 175   1        P0=0xfe; delay(750);
+C51 COMPILER V9.60.0.0   MAIN                                                              11/07/2020 20:52:23 PAGE 4   
+
+ 176   1        P0=0xfa; delay(750);
+ 177   1        P0=0xf8; delay(750);
+ 178   1      //  P0=0x9c; delay(750);
+ 179   1      //  P0=0x98; delay(750);
+ 180   1      //  P0=0x88; delay(750);
+ 181   1      //  P0=0x80; delay(750);     
+ 182   1      }
+ 183          void veTraiTim() //2 nua trai tim duoc ve xen ke
+ 184          {
+ 185   1        int i;
+ 186   1        P0=0; P1=0xff;
+ 187   1        for(i=0;i<8;i++)
+ 188   1        {
+ 189   2          P1 = sangXuoi[i];
+ 190   2          delay(750);
+ 191   2          P0 = sangXuoi[i];
+ 192   2          delay(750);
+ 193   2        }  
+ 194   1      }
+ 195          void veTraiTim2() //2 nua trai tim duoc ve dong thoi
+ 196          {
+ 197   1        int i;
+ 198   1        P0=0; P1=0xff;
+ 199   1        for(i=0;i<8;i++)
+ 200   1        {
+ 201   2          P1=P0=sangXuoi[i];
+ 202   2          delay(750);
+ 203   2        }
+ 204   1        for(i=0;i<8;i++)
+ 205   1        {
+ 206   2          P1=P0=tatXuoi[i];
+ 207   2          delay(750);
+ 208   2        }
+ 209   1      }
+ 210          void veTraiTim3() //2 nua trAI tim duoc ve nguoc chieu nhau
+ 211          {
+ 212   1        int i;
+ 213   1        P0=0; P1=0xff;
+ 214   1        for(i=0;i<8;i++)
+ 215   1        {
+ 216   2          P1=sangXuoi[i];
+ 217   2          delay(750);
+ 218   2          P0=sangNguoc[i];
+ 219   2          delay(750);
+ 220   2        }
+ 221   1        for(i=0;i<8;i++)
+ 222   1        {
+ 223   2          P1=tatXuoi[i];
+ 224   2          delay(750);
+ 225   2          P0=tatNguoc[i];
+ 226   2          delay(750);
+ 227   2        }
+ 228   1      }
+ 229          void veTraiTim4() //Nguoc lai hieu ung ve trai tim 3
+ 230          {
+ 231   1        int i;
+ 232   1        P0=0; P1=0xff;
+ 233   1        for(i=0;i<8;i++)
+ 234   1        {
+ 235   2          P1=sangNguoc[i];
+ 236   2          delay(750);
+ 237   2          P0=sangXuoi[i];
+C51 COMPILER V9.60.0.0   MAIN                                                              11/07/2020 20:52:23 PAGE 5   
+
+ 238   2          delay(750);
+ 239   2        }
+ 240   1        for(i=0;i<8;i++)
+ 241   1        {
+ 242   2          P1=tatNguoc[i];
+ 243   2          delay(750);
+ 244   2          P0=tatXuoi[i];
+ 245   2          delay(750);
+ 246   2        } 
+ 247   1      }
+ 248          void chayTen() //tung chu cai nhay lan luot
+ 249          {
+ 250   1        int i;
+ 251   1        P1=P0=0; 
+ 252   1        for(i=0;i<3;i++)
+ 253   1        {
+ 254   2          P0=tat1BongXuoi[i];
+ 255   2          delay(750);
+ 256   2        }
+ 257   1        for(i=0;i<3;i++)
+ 258   1        {
+ 259   2          P0=tat1BongNguoc[i];
+ 260   2          delay(750);
+ 261   2        }
+ 262   1          
+ 263   1      }
+ 264          void nhayCham() //ket thuc
+ 265          {
+ 266   1        int i;
+ 267   1        P0=P1=0;
+ 268   1        delay(750);
+ 269   1        P0=P1=0xff;
+ 270   1        delay(750);
+ 271   1        //--------------
+ 272   1        P0=P1=0;
+ 273   1        delay(750);
+ 274   1        P0=P1=0xff;
+ 275   1        delay(750);
+ 276   1        for(i=0;i<3;i++)
+ 277   1        {
+ 278   2          P0=sangXuoi[i];
+ 279   2          delay(750);
+ 280   2        }
+ 281   1         
+ 282   1      }
+ 283          void saoBang()   //hieu ung sao bang
+ 284          {
+ 285   1        int i;
+ 286   1        P0=P1=0;
+ 287   1        for(i=0;i<8;i++)
+ 288   1        {
+ 289   2          P1 = P0 = sangXuoi[i];
+ 290   2          delay(750); 
+ 291   2        }
+ 292   1        for(i=0;i<8;i++)
+ 293   1        {
+ 294   2          P1 = P0 = tatXuoi[i];
+ 295   2          delay(750); 
+ 296   2        }
+ 297   1        //--------Nguoc-----
+ 298   1        for(i=0;i<8;i++)
+ 299   1        {
+C51 COMPILER V9.60.0.0   MAIN                                                              11/07/2020 20:52:23 PAGE 6   
+
+ 300   2          P1 = P0 = sangNguoc[i];
+ 301   2          delay(750); 
+ 302   2        }
+ 303   1        for(i=0;i<8;i++)
+ 304   1        {
+ 305   2          P1 = P0 = tatNguoc[i];
+ 306   2          delay(750); 
+ 307   2        }
+ 308   1        //-----------------
+ 309   1        for(i=0;i<8;i++)
+ 310   1        {
+ 311   2          P1 = sangXuoi[i];
+ 312   2          delay(750); 
+ 313   2        }
+ 314   1        for(i=0;i<8;i++)
+ 315   1        {
+ 316   2          P0 = sangNguoc[i];
+ 317   2          delay(750); 
+ 318   2        }
+ 319   1        for(i=0;i<8;i++)
+ 320   1        {
+ 321   2          P0 = tatXuoi[i];
+ 322   2          delay(750); 
+ 323   2        }
+ 324   1        
+ 325   1        for(i=0;i<8;i++)
+ 326   1        {
+ 327   2          P0 = tatNguoc[i];
+ 328   2          delay(750); 
+ 329   2        }
+ 330   1        //---------------
+ 331   1        for(i=0;i<8;i++)
+ 332   1        {
+ 333   2          P0 = sangXuoi[i];
+ 334   2          delay(750); 
+ 335   2        }
+ 336   1        for(i=0;i<8;i++)
+ 337   1        {
+ 338   2          P1 = sangNguoc[i];
+ 339   2          delay(750); 
+ 340   2        }
+ 341   1        for(i=0;i<8;i++)
+ 342   1        {
+ 343   2          P1 = tatXuoi[i];
+ 344   2          delay(750); 
+ 345   2        }
+ 346   1        
+ 347   1        for(i=0;i<8;i++)
+ 348   1        {
+ 349   2          P1 = tatNguoc[i];
+ 350   2          delay(750); 
+ 351   2        }
+ 352   1      }
+ 353          void halfBlink()
+ 354          {
+ 355   1        P0=P1=0xff;
+ 356   1        P1=0; delay(750); P1=0xff; delay(750); P1=0; delay(750); P1=0xff; delay(750); P1=0;
+ 357   1        P0=0; delay(750); P0=0xff; delay(750); P0=0; delay(750); P0=0xff; delay(750); P0=0;
+ 358   1      }
+ 359          void main()
+ 360          {
+ 361   1          Set_All_GPIO_Quasi_Mode;
+C51 COMPILER V9.60.0.0   MAIN                                                              11/07/2020 20:52:23 PAGE 7   
+
+ 362   1        while(1)
+ 363   1        {
+ 364   2          Blink(5);
+ 365   2          nhayXenKeTraiTim(6);
+ 366   2          nhayVeTraiTim();
+ 367   2          nhayVeChu();
+ 368   2          nhayXenKeTrongNgoai();
+ 369   2          nhayXenKeTrongNgoai();
+ 370   2          nhayXenKeTrongNgoai();
+ 371   2          nhayXenKeTrongNgoai();
+ 372   2          //nhayDienTen();
+ 373   2          Blink(4);
+ 374   2          chay1Bong1();
+ 375   2          chay1Bong1();
+ 376   2          chayVongTronXuoi1();
+ 377   2          Blink(1);
+ 378   2          chayVongTronNguoc1();
+ 379   2          nhayXenKeTraiTim(10);
+ 380   2          chayTen();
+ 381   2          veTraiTim2();
+ 382   2          veTraiTim();
+ 383   2          nhayDienTen2();
+ 384   2          nhayVeTraiTim2();
+ 385   2          
+ 386   2          veTraiTim2();
+ 387   2          veTraiTim3();
+ 388   2          veTraiTim4();
+ 389   2          veTraiTim3();
+ 390   2          veTraiTim4();
+ 391   2          saoBang();
+ 392   2          halfBlink();
+ 393   2          nhayCham();
+ 394   2        }
+ 395   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1347    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     65       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

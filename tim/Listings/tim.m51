@@ -1,0 +1,704 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    11/07/2020  20:52:23  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj TO .\Objects\tim PRINT (.\Listings\tim.m51) RAMSIZ
+>> E (256) DISABLEWARNING (16)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\tim (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0041H     UNIT         ?DT?MAIN
+            DATA    0049H     0002H     UNIT         _DATA_GROUP_
+            IDATA   004BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0125H     UNIT         ?PR?SAOBANG?MAIN
+            CODE    0925H     00ACH     UNIT         ?C_C51STARTUP
+            CODE    09D1H     0077H     UNIT         ?PR?MAIN?MAIN
+            CODE    0A48H     0052H     UNIT         ?C_INITSEG
+            CODE    0A9AH     004DH     UNIT         ?PR?NHAYVETRAITIM2?MAIN
+            CODE    0AE7H     004CH     UNIT         ?PR?VETRAITIM4?MAIN
+            CODE    0B33H     0048H     UNIT         ?PR?VETRAITIM3?MAIN
+            CODE    0B7BH     0041H     UNIT         ?PR?NHAYVETRAITIM?MAIN
+            CODE    0BBCH     003DH     UNIT         ?PR?CHAY1BONG1?MAIN
+            CODE    0BF9H     003BH     UNIT         ?PR?NHAYCHAM?MAIN
+            CODE    0C34H     003AH     UNIT         ?PR?VETRAITIM2?MAIN
+            CODE    0C6EH     003AH     UNIT         ?PR?HALFBLINK?MAIN
+            CODE    0CA8H     0039H     UNIT         ?PR?CHAYVONGTRONNGUOC1?MAIN
+            CODE    0CE1H     0039H     UNIT         ?PR?CHAYTEN?MAIN
+            CODE    0D1AH     0037H     UNIT         ?PR?CHAYVONGTRONXUOI1?MAIN
+            CODE    0D51H     002EH     UNIT         ?PR?_NHAYXENKETRAITIM?MAIN
+            CODE    0D7FH     002DH     UNIT         ?PR?_DELAY?MAIN
+            CODE    0DACH     002DH     UNIT         ?PR?_BLINK?MAIN
+            CODE    0DD9H     0025H     UNIT         ?PR?VETRAITIM?MAIN
+            CODE    0DFEH     001FH     UNIT         ?PR?NHAYVECHU?MAIN
+            CODE    0E1DH     0012H     UNIT         ?PR?NHAYXENKETRONGNGOAI?MAIN
+            CODE    0E2FH     0012H     UNIT         ?PR?NHAYDIENTEN2?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\tim (?C_STARTUP)
+
+
+SEGMENT                                DATA_GROUP 
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/07/2020  20:52:23  PAGE 2
+
+
+  +--> CALLED SEGMENT                START    LENGTH
+----------------------------------------------------
+?C_C51STARTUP                        -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                        -----    -----
+  +--> ?PR?_BLINK?MAIN
+  +--> ?PR?_NHAYXENKETRAITIM?MAIN
+  +--> ?PR?NHAYVETRAITIM?MAIN
+  +--> ?PR?NHAYVECHU?MAIN
+  +--> ?PR?NHAYXENKETRONGNGOAI?MAIN
+  +--> ?PR?CHAY1BONG1?MAIN
+  +--> ?PR?CHAYVONGTRONXUOI1?MAIN
+  +--> ?PR?CHAYVONGTRONNGUOC1?MAIN
+  +--> ?PR?CHAYTEN?MAIN
+  +--> ?PR?VETRAITIM2?MAIN
+  +--> ?PR?VETRAITIM?MAIN
+  +--> ?PR?NHAYDIENTEN2?MAIN
+  +--> ?PR?NHAYVETRAITIM2?MAIN
+  +--> ?PR?VETRAITIM3?MAIN
+  +--> ?PR?VETRAITIM4?MAIN
+  +--> ?PR?SAOBANG?MAIN
+  +--> ?PR?HALFBLINK?MAIN
+  +--> ?PR?NHAYCHAM?MAIN
+
+?PR?_BLINK?MAIN                      0049H    0002H
+  +--> ?PR?_DELAY?MAIN
+
+?PR?_NHAYXENKETRAITIM?MAIN           0049H    0002H
+  +--> ?PR?_DELAY?MAIN
+
+?PR?NHAYVETRAITIM?MAIN               -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?NHAYVECHU?MAIN                   -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?NHAYXENKETRONGNGOAI?MAIN         -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?CHAY1BONG1?MAIN                  -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?CHAYVONGTRONXUOI1?MAIN           -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?CHAYVONGTRONNGUOC1?MAIN          -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?CHAYTEN?MAIN                     -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?VETRAITIM2?MAIN                  -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?VETRAITIM?MAIN                   -----    -----
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/07/2020  20:52:23  PAGE 3
+
+
+  +--> ?PR?_DELAY?MAIN
+
+?PR?NHAYDIENTEN2?MAIN                -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?NHAYVETRAITIM2?MAIN              -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?VETRAITIM3?MAIN                  -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?VETRAITIM4?MAIN                  -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?SAOBANG?MAIN                     -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?HALFBLINK?MAIN                   -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?NHAYCHAM?MAIN                    -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\tim (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0925H         SEGMENT       ?C_C51STARTUP
+  I:004BH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:093AH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0000H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0925H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:02FFH         SYMBOL        XDATALEN
+  C:0945H         SYMBOL        XDATALOOP
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         94
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/07/2020  20:52:23  PAGE 4
+
+
+  C:0925H         LINE#         100
+  C:0928H         LINE#         101
+  C:092BH         LINE#         102
+  C:092EH         LINE#         104
+  C:0931H         LINE#         105
+  C:0934H         LINE#         106
+  C:0937H         LINE#         109
+  C:0939H         LINE#         110
+  C:093AH         LINE#         111
+  C:093BH         LINE#         112
+  C:093DH         LINE#         116
+  C:0940H         LINE#         117
+  C:0942H         LINE#         119
+  C:0944H         LINE#         123
+  C:0945H         LINE#         124
+  C:0946H         LINE#         125
+  C:0947H         LINE#         126
+  C:0949H         LINE#         127
+  C:094BH         LINE#         161
+  C:094EH         LINE#         165
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B1H         PUBLIC        P0M1
+  D:00B3H         PUBLIC        P1M1
+  D:00B2H         PUBLIC        P0M2
+  D:0080H         PUBLIC        P0
+  D:00B4H         PUBLIC        P1M2
+  D:0090H         PUBLIC        P1
+  D:00ACH         PUBLIC        P3M1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00ADH         PUBLIC        P3M2
+  D:0008H         PUBLIC        tat1BongNguoc
+  D:00D8H         PUBLIC        PWMCON0
+  D:0010H         PUBLIC        sang1BongXuoi
+  D:00A8H         PUBLIC        IE
+  C:0C6EH         PUBLIC        halfBlink
+  C:0E2FH         PUBLIC        nhayDienTen2
+  C:0E1DH         PUBLIC        nhayXenKeTrongNgoai
+  C:0DFEH         PUBLIC        nhayVeChu
+  C:0D8CH         PUBLIC        _delay
+  C:0BBCH         PUBLIC        chay1Bong1
+  D:00B8H         PUBLIC        IP
+  C:0DD9H         PUBLIC        veTraiTim
+  C:0CA8H         PUBLIC        chayVongTronNguoc1
+  C:09D1H         PUBLIC        main
+  D:0018H         PUBLIC        sangNguoc
+  D:0020H         PUBLIC        tat1BongXuoi
+  C:0BF9H         PUBLIC        nhayCham
+  C:0B7BH         PUBLIC        nhayVeTraiTim
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0800H         PUBLIC        saoBang
+  C:0D1AH         PUBLIC        chayVongTronXuoi1
+  D:00F8H         PUBLIC        SCON_1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/07/2020  20:52:23  PAGE 5
+
+
+  D:0028H         PUBLIC        tatNguoc
+  C:0C34H         PUBLIC        veTraiTim2
+  C:0B33H         PUBLIC        veTraiTim3
+  C:0AE7H         PUBLIC        veTraiTim4
+  C:0CE1H         PUBLIC        chayTen
+  C:0D51H         PUBLIC        _nhayXenKeTraiTim
+  D:0031H         PUBLIC        sangXuoi
+  D:00E8H         PUBLIC        ADCCON0
+  D:00C0H         PUBLIC        I2CON
+  C:0A9AH         PUBLIC        nhayVeTraiTim2
+  D:0039H         PUBLIC        sang1BongNguoc
+  D:00C8H         PUBLIC        T2CON
+  C:0DACH         PUBLIC        _Blink
+  D:0041H         PUBLIC        tatXuoi
+  D:00D0H         PUBLIC        PSW
+  C:0D7FH         SYMBOL        L?0131
+  C:0D81H         SYMBOL        L?0132
+  C:0D83H         SYMBOL        L?0133
+  C:0D86H         SYMBOL        L?0134
+  C:0D88H         SYMBOL        L?0135
+  -------         PROC          L?0130
+  -------         ENDPROC       L?0130
+  C:0D7FH         SYMBOL        L?0131
+  C:0D81H         SYMBOL        L?0132
+  C:0D83H         SYMBOL        L?0133
+  C:0D86H         SYMBOL        L?0134
+  C:0D88H         SYMBOL        L?0135
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0D8CH         LINE#         17
+  C:0D8CH         LINE#         19
+  C:0D96H         LINE#         20
+  C:0DA4H         LINE#         21
+  C:0DABH         LINE#         22
+  -------         ENDPROC       _DELAY
+  -------         PROC          _BLINK
+  D:0049H         SYMBOL        lan
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0DACH         LINE#         24
+  C:0DB0H         LINE#         25
+  C:0DB0H         LINE#         27
+  C:0DC4H         LINE#         28
+  C:0DC4H         LINE#         29
+  C:0DC9H         LINE#         30
+  C:0DCCH         LINE#         31
+  C:0DD2H         LINE#         32
+  C:0DD5H         LINE#         33
+  C:0DD8H         LINE#         34
+  -------         ENDPROC       _BLINK
+  -------         PROC          NHAYVETRAITIM
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/07/2020  20:52:23  PAGE 6
+
+
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0B7BH         LINE#         35
+  C:0B7BH         LINE#         36
+  C:0B7BH         LINE#         38
+  C:0B81H         LINE#         39
+  C:0B84H         LINE#         40
+  C:0B84H         LINE#         41
+  C:0B84H         LINE#         42
+  C:0B87H         LINE#         43
+  C:0B8AH         LINE#         44
+  C:0B8DH         LINE#         45
+  C:0B96H         LINE#         46
+  C:0B99H         LINE#         47
+  C:0B9DH         LINE#         48
+  C:0B9DH         LINE#         49
+  C:0BA6H         LINE#         50
+  C:0BA9H         LINE#         51
+  C:0BACH         LINE#         52
+  C:0BAFH         LINE#         53
+  C:0BB8H         LINE#         54
+  C:0BBBH         LINE#         55
+  -------         ENDPROC       NHAYVETRAITIM
+  -------         PROC          NHAYVETRAITIM2
+  C:0A9AH         LINE#         56
+  C:0A9AH         LINE#         57
+  C:0A9AH         LINE#         58
+  C:0A9FH         LINE#         59
+  C:0AA8H         LINE#         60
+  C:0AB1H         LINE#         61
+  C:0ABAH         LINE#         62
+  C:0AC3H         LINE#         63
+  C:0ACCH         LINE#         64
+  C:0AD5H         LINE#         65
+  C:0ADEH         LINE#         66
+  -------         ENDPROC       NHAYVETRAITIM2
+  -------         PROC          NHAYVECHU
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0DFEH         LINE#         68
+  C:0DFEH         LINE#         69
+  C:0DFEH         LINE#         72
+  C:0E01H         LINE#         73
+  C:0E01H         LINE#         74
+  C:0E0AH         LINE#         75
+  C:0E0DH         LINE#         76
+  C:0E10H         LINE#         77
+  C:0E13H         LINE#         78
+  C:0E1CH         LINE#         79
+  -------         ENDPROC       NHAYVECHU
+  -------         PROC          _NHAYXENKETRAITIM
+  D:0049H         SYMBOL        lan
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0D51H         LINE#         80
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/07/2020  20:52:23  PAGE 7
+
+
+  C:0D55H         LINE#         81
+  C:0D55H         LINE#         83
+  C:0D69H         LINE#         84
+  C:0D69H         LINE#         85
+  C:0D72H         LINE#         86
+  C:0D7BH         LINE#         87
+  C:0D7EH         LINE#         88
+  -------         ENDPROC       _NHAYXENKETRAITIM
+  -------         PROC          NHAYXENKETRONGNGOAI
+  C:0E1DH         LINE#         89
+  C:0E1DH         LINE#         90
+  C:0E1DH         LINE#         91
+  C:0E26H         LINE#         92
+  -------         ENDPROC       NHAYXENKETRONGNGOAI
+  -------         PROC          CHAY1BONG1
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0BBCH         LINE#         123
+  C:0BBCH         LINE#         124
+  C:0BBCH         LINE#         126
+  C:0BBFH         LINE#         127
+  C:0BBFH         LINE#         128
+  C:0BC8H         LINE#         129
+  C:0BCBH         LINE#         130
+  C:0BD4H         LINE#         131
+  C:0BD9H         LINE#         132
+  C:0BDDH         LINE#         133
+  C:0BDDH         LINE#         134
+  C:0BE6H         LINE#         135
+  C:0BE9H         LINE#         136
+  C:0BF2H         LINE#         137
+  C:0BF8H         LINE#         138
+  -------         ENDPROC       CHAY1BONG1
+  -------         PROC          CHAYVONGTRONXUOI1
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0D1AH         LINE#         139
+  C:0D1AH         LINE#         140
+  C:0D1AH         LINE#         142
+  C:0D1FH         LINE#         143
+  C:0D23H         LINE#         144
+  C:0D23H         LINE#         145
+  C:0D25H         LINE#         146
+  C:0D28H         LINE#         147
+  C:0D31H         LINE#         148
+  C:0D34H         LINE#         149
+  C:0D38H         LINE#         150
+  C:0D38H         LINE#         151
+  C:0D41H         LINE#         152
+  C:0D44H         LINE#         153
+  C:0D4DH         LINE#         154
+  C:0D50H         LINE#         155
+  -------         ENDPROC       CHAYVONGTRONXUOI1
+  -------         PROC          CHAYVONGTRONNGUOC1
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/07/2020  20:52:23  PAGE 8
+
+
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0CA8H         LINE#         156
+  C:0CA8H         LINE#         157
+  C:0CA8H         LINE#         159
+  C:0CADH         LINE#         160
+  C:0CB1H         LINE#         161
+  C:0CB1H         LINE#         162
+  C:0CBAH         LINE#         163
+  C:0CBDH         LINE#         164
+  C:0CC6H         LINE#         165
+  C:0CC9H         LINE#         166
+  C:0CCDH         LINE#         167
+  C:0CCDH         LINE#         168
+  C:0CD1H         LINE#         169
+  C:0CD4H         LINE#         170
+  C:0CDDH         LINE#         171
+  C:0CE0H         LINE#         172
+  -------         ENDPROC       CHAYVONGTRONNGUOC1
+  -------         PROC          NHAYDIENTEN2
+  C:0E2FH         LINE#         173
+  C:0E2FH         LINE#         174
+  C:0E2FH         LINE#         175
+  C:0E35H         LINE#         176
+  C:0E3BH         LINE#         177
+  -------         ENDPROC       NHAYDIENTEN2
+  -------         PROC          VETRAITIM
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0DD9H         LINE#         183
+  C:0DD9H         LINE#         184
+  C:0DD9H         LINE#         186
+  C:0DDFH         LINE#         187
+  C:0DE3H         LINE#         188
+  C:0DE3H         LINE#         189
+  C:0DE3H         LINE#         190
+  C:0DE6H         LINE#         191
+  C:0DEFH         LINE#         192
+  C:0DF4H         LINE#         193
+  C:0DFDH         LINE#         194
+  -------         ENDPROC       VETRAITIM
+  -------         PROC          VETRAITIM2
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0C34H         LINE#         195
+  C:0C34H         LINE#         196
+  C:0C34H         LINE#         198
+  C:0C3AH         LINE#         199
+  C:0C3EH         LINE#         200
+  C:0C3EH         LINE#         201
+  C:0C47H         LINE#         202
+  C:0C4AH         LINE#         203
+  C:0C53H         LINE#         204
+  C:0C58H         LINE#         205
+  C:0C58H         LINE#         206
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/07/2020  20:52:23  PAGE 9
+
+
+  C:0C61H         LINE#         207
+  C:0C64H         LINE#         208
+  C:0C6DH         LINE#         209
+  -------         ENDPROC       VETRAITIM2
+  -------         PROC          VETRAITIM3
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0B33H         LINE#         210
+  C:0B33H         LINE#         211
+  C:0B33H         LINE#         213
+  C:0B39H         LINE#         214
+  C:0B3DH         LINE#         215
+  C:0B3DH         LINE#         216
+  C:0B3DH         LINE#         217
+  C:0B40H         LINE#         218
+  C:0B49H         LINE#         219
+  C:0B4EH         LINE#         220
+  C:0B57H         LINE#         221
+  C:0B5CH         LINE#         222
+  C:0B5CH         LINE#         223
+  C:0B60H         LINE#         224
+  C:0B63H         LINE#         225
+  C:0B6CH         LINE#         226
+  C:0B71H         LINE#         227
+  C:0B7AH         LINE#         228
+  -------         ENDPROC       VETRAITIM3
+  -------         PROC          VETRAITIM4
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0AE7H         LINE#         229
+  C:0AE7H         LINE#         230
+  C:0AE7H         LINE#         232
+  C:0AEDH         LINE#         233
+  C:0AF1H         LINE#         234
+  C:0AF1H         LINE#         235
+  C:0AF5H         LINE#         236
+  C:0AF8H         LINE#         237
+  C:0B01H         LINE#         238
+  C:0B06H         LINE#         239
+  C:0B0FH         LINE#         240
+  C:0B14H         LINE#         241
+  C:0B14H         LINE#         242
+  C:0B18H         LINE#         243
+  C:0B1BH         LINE#         244
+  C:0B24H         LINE#         245
+  C:0B29H         LINE#         246
+  C:0B32H         LINE#         247
+  -------         ENDPROC       VETRAITIM4
+  -------         PROC          CHAYTEN
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0CE1H         LINE#         248
+  C:0CE1H         LINE#         249
+  C:0CE1H         LINE#         251
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/07/2020  20:52:23  PAGE 10
+
+
+  C:0CE6H         LINE#         252
+  C:0CEAH         LINE#         253
+  C:0CEAH         LINE#         254
+  C:0CF3H         LINE#         255
+  C:0CF6H         LINE#         256
+  C:0CFFH         LINE#         257
+  C:0D04H         LINE#         258
+  C:0D04H         LINE#         259
+  C:0D0DH         LINE#         260
+  C:0D10H         LINE#         261
+  C:0D19H         LINE#         263
+  -------         ENDPROC       CHAYTEN
+  -------         PROC          NHAYCHAM
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0BF9H         LINE#         264
+  C:0BF9H         LINE#         265
+  C:0BF9H         LINE#         267
+  C:0BFEH         LINE#         268
+  C:0C01H         LINE#         269
+  C:0C07H         LINE#         270
+  C:0C0AH         LINE#         272
+  C:0C0FH         LINE#         273
+  C:0C12H         LINE#         274
+  C:0C18H         LINE#         275
+  C:0C1BH         LINE#         276
+  C:0C1EH         LINE#         277
+  C:0C1EH         LINE#         278
+  C:0C27H         LINE#         279
+  C:0C2AH         LINE#         280
+  C:0C33H         LINE#         282
+  -------         ENDPROC       NHAYCHAM
+  -------         PROC          SAOBANG
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0800H         LINE#         283
+  C:0800H         LINE#         284
+  C:0800H         LINE#         286
+  C:0805H         LINE#         287
+  C:0809H         LINE#         288
+  C:0809H         LINE#         289
+  C:0812H         LINE#         290
+  C:0815H         LINE#         291
+  C:081EH         LINE#         292
+  C:0823H         LINE#         293
+  C:0823H         LINE#         294
+  C:082CH         LINE#         295
+  C:082FH         LINE#         296
+  C:0838H         LINE#         298
+  C:083DH         LINE#         299
+  C:083DH         LINE#         300
+  C:0846H         LINE#         301
+  C:0849H         LINE#         302
+  C:0852H         LINE#         303
+  C:0857H         LINE#         304
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/07/2020  20:52:23  PAGE 11
+
+
+  C:0857H         LINE#         305
+  C:0860H         LINE#         306
+  C:0863H         LINE#         307
+  C:086CH         LINE#         309
+  C:0871H         LINE#         310
+  C:0871H         LINE#         311
+  C:0871H         LINE#         312
+  C:0874H         LINE#         313
+  C:087DH         LINE#         314
+  C:0882H         LINE#         315
+  C:0882H         LINE#         316
+  C:088BH         LINE#         317
+  C:088EH         LINE#         318
+  C:0897H         LINE#         319
+  C:089CH         LINE#         320
+  C:089CH         LINE#         321
+  C:08A5H         LINE#         322
+  C:08A8H         LINE#         323
+  C:08B1H         LINE#         325
+  C:08B6H         LINE#         326
+  C:08B6H         LINE#         327
+  C:08BFH         LINE#         328
+  C:08C2H         LINE#         329
+  C:08CBH         LINE#         331
+  C:08D0H         LINE#         332
+  C:08D0H         LINE#         333
+  C:08D9H         LINE#         334
+  C:08DCH         LINE#         335
+  C:08E5H         LINE#         336
+  C:08EAH         LINE#         337
+  C:08EAH         LINE#         338
+  C:08EEH         LINE#         339
+  C:08F1H         LINE#         340
+  C:08FAH         LINE#         341
+  C:08FFH         LINE#         342
+  C:08FFH         LINE#         343
+  C:0903H         LINE#         344
+  C:0906H         LINE#         345
+  C:090FH         LINE#         347
+  C:0914H         LINE#         348
+  C:0914H         LINE#         349
+  C:0918H         LINE#         350
+  C:091BH         LINE#         351
+  C:0924H         LINE#         352
+  -------         ENDPROC       SAOBANG
+  -------         PROC          HALFBLINK
+  C:0C6EH         LINE#         353
+  C:0C6EH         LINE#         354
+  C:0C6EH         LINE#         355
+  C:0C74H         LINE#         356
+  C:0C8DH         LINE#         357
+  C:0CA7H         LINE#         358
+  -------         ENDPROC       HALFBLINK
+  -------         PROC          MAIN
+  C:09D1H         LINE#         359
+  C:09D1H         LINE#         360
+  C:09D1H         LINE#         361
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/07/2020  20:52:23  PAGE 12
+
+
+  C:09DEH         LINE#         362
+  C:09DEH         LINE#         363
+  C:09DEH         LINE#         364
+  C:09E5H         LINE#         365
+  C:09ECH         LINE#         366
+  C:09EFH         LINE#         367
+  C:09F2H         LINE#         368
+  C:09F5H         LINE#         369
+  C:09F8H         LINE#         370
+  C:09FBH         LINE#         371
+  C:09FEH         LINE#         373
+  C:0A05H         LINE#         374
+  C:0A08H         LINE#         375
+  C:0A0BH         LINE#         376
+  C:0A0EH         LINE#         377
+  C:0A15H         LINE#         378
+  C:0A18H         LINE#         379
+  C:0A1FH         LINE#         380
+  C:0A22H         LINE#         381
+  C:0A25H         LINE#         382
+  C:0A28H         LINE#         383
+  C:0A2BH         LINE#         384
+  C:0A2EH         LINE#         386
+  C:0A31H         LINE#         387
+  C:0A34H         LINE#         388
+  C:0A37H         LINE#         389
+  C:0A3AH         LINE#         390
+  C:0A3DH         LINE#         391
+  C:0A40H         LINE#         392
+  C:0A43H         LINE#         393
+  C:0A46H         LINE#         394
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 05C3H BYTE (72%) *
+******************************************************************************
+
+Program Size: data=76.0 xdata=0 code=1604
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
